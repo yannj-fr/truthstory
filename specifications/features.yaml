@@ -1,0 +1,100 @@
+features:
+  name: TruthStory Core Features
+  version: 1.0.0
+  
+  services:
+    news_crawler:
+      name: News Crawler Service
+      features:
+        - name: Content Collection
+          description: Automated news content collection
+          capabilities:
+            - Web crawling
+            - Data storage
+            - Real-time monitoring
+            
+    knowledge_graph:
+      name: AI Analysis & Knowledge Graph Service
+      features:
+        - name: Content Analysis
+          description: AI-powered content analysis
+          capabilities:
+            - Natural language processing
+            - Entity recognition
+            - Relationship mapping
+            
+        - name: Knowledge Graph
+          description: Graph-based knowledge representation
+          entities:
+            - Media sources
+            - People
+            - Organizations
+            - Facts
+            - Events
+            - Opinions
+            
+    fake_news_detector:
+      name: Fake News Detection Service
+      features:
+        - name: Content Verification
+          description: Automated fact-checking system
+          capabilities:
+            - Source credibility analysis
+            - Content verification
+            - Pattern analysis
+            
+    news_propagation:
+      name: News Propagation Analysis Service
+      features:
+        - name: Propagation Tracking
+          description: Track information spread
+          capabilities:
+            - Pattern identification
+            - Channel analysis
+            - Impact measurement
+            - Timeline tracking
+            
+    user_interface:
+      name: User Interface
+      features:
+        - name: Visualization
+          description: Interactive data visualization
+          capabilities:
+            - Knowledge graph exploration
+            - Analytics dashboard
+            - Search and filtering
+            
+    demo_interface:
+      name: Demo Interface
+      features:
+        - name: Testing Environment
+          description: Service testing interface
+          capabilities:
+            - Individual service testing
+            - Integration testing
+            - Pre-defined scenarios
+            - API documentation
+            
+  integrations:
+    - name: Service Communication
+      type: internal
+      protocol: REST + Events
+      
+    - name: Data Storage
+      type: internal
+      components:
+        - Document store
+        - Graph database
+        - Time-series database
+        
+    - name: Message Queue
+      type: internal
+      purpose: Event communication
+      
+  deployment:
+    type: Containerized
+    orchestration: Kubernetes
+    environments:
+      - development
+      - staging
+      - production
