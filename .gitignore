@@ -43,3 +43,8 @@ logs/
 # System Files
 .DS_Store
 Thumbs.db
+
+# Credentials
+config/credentials/
+*.credentials.yaml
+*.credentials.yml
