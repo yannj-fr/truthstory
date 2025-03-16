@@ -56,25 +56,37 @@ The project follows a microservices architecture with the following structure:
 
 ```
 truthstory/
+├── specifications/         # Comprehensive service specifications
+│   ├── services/          # Individual service specifications
+│   ├── interfaces/        # Interface and API specifications
+│   ├── architecture/      # System architecture specifications
+│   └── data-models/       # Data structure specifications
 ├── services/
-│   ├── news-crawler/        # News crawling and storage service
-│   ├── knowledge-graph/     # AI analysis and knowledge graph service
-│   ├── fake-news-detector/  # Fake news detection service
-│   ├── news-propagation/    # News propagation analysis service
-│   └── ui/                  # User interface application
-├── demo-interface/          # Testing interface for services
-│   ├── scenarios/          # Pre-defined test scenarios
-│   ├── api/                # Simple API gateway for testing
-│   └── web/                # Minimal web interface for demos
-├── shared/                  # Shared libraries and utilities
-├── docs/                    # Project documentation
-└── deploy/                  # Deployment configurations
+│   ├── news-crawler/      # News crawling and storage service
+│   ├── knowledge-graph/   # AI analysis and knowledge graph service
+│   ├── fake-news-detector/# Fake news detection service
+│   ├── news-propagation/ # News propagation analysis service
+│   └── ui/               # User interface application
+├── demo-interface/        # Testing interface for services
+│   ├── scenarios/        # Pre-defined test scenarios
+│   ├── api/              # Simple API gateway for testing
+│   └── web/              # Minimal web interface for demos
+├── shared/               # Shared libraries and utilities
+├── docs/                 # Project documentation
+└── deploy/               # Deployment configurations
 ```
 
 Each service is designed to be independently deployable and maintainable, while sharing common infrastructure and communication protocols.
 
 ### Development Rules
-1. External Services and APIs
+
+1. Specification-First Development
+   - All features must be specified in `/specifications` before implementation
+   - Specifications must be reviewed and approved
+   - Implementation must follow approved specifications
+   - Any deviations from specs require documentation and approval
+
+2. External Services and APIs
    - Never use any external APIs or services unless explicitly approved
    - Maintain a list of approved external services in the project documentation
    - All external integrations must be reviewed and documented
