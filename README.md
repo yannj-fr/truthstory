@@ -38,6 +38,17 @@ TruthStory is a SaaS platform designed to provide comprehensive media and news a
    - Real-time analytics dashboard
    - Search and filtering capabilities
 
+6. **Demo Interface**
+   - Lightweight testing environment for services
+   - Direct service integration testing
+   - Pre-defined test scenarios
+   - No code duplication - uses actual service endpoints
+   - Features:
+     - Individual service testing
+     - Multi-service integration testing
+     - Quick demo capabilities
+     - API documentation and examples
+
 ## Development Context
 
 ### Project Structure
@@ -51,6 +62,10 @@ truthstory/
 │   ├── fake-news-detector/  # Fake news detection service
 │   ├── news-propagation/    # News propagation analysis service
 │   └── ui/                  # User interface application
+├── demo-interface/          # Testing interface for services
+│   ├── scenarios/          # Pre-defined test scenarios
+│   ├── api/                # Simple API gateway for testing
+│   └── web/                # Minimal web interface for demos
 ├── shared/                  # Shared libraries and utilities
 ├── docs/                    # Project documentation
 └── deploy/                  # Deployment configurations
@@ -121,6 +136,25 @@ Each service is designed to be independently deployable and maintainable, while 
 - Event-based messaging for asynchronous operations
 - Shared data formats and protocols
 - Service discovery and health monitoring
+
+#### Demo Interface Architecture
+- **API Gateway**:
+  - Lightweight proxy to service endpoints
+  - Request/response logging
+  - Error handling and visualization
+  - Rate limiting for testing
+
+- **Test Scenarios**:
+  - YAML-defined test flows
+  - Service integration patterns
+  - Mock data generators
+  - Scenario replay capabilities
+
+- **Web Interface**:
+  - Simple, dependency-free UI
+  - Direct service interaction
+  - Real-time response visualization
+  - Swagger/OpenAPI documentation integration
 
 ### Approved External Services and APIs
 This is a comprehensive list of external services and APIs that have been explicitly approved for use in this project:
