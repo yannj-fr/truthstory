@@ -1,0 +1,69 @@
+interface:
+  name: service-communication
+  type: internal
+  version: 1.0.0
+  description: Defines how services communicate with each other
+  
+  protocols:
+    rest:
+      base_path: /api/v1
+      authentication: JWT
+      rate_limiting: true
+      
+    events:
+      protocol: AMQP
+      exchanges:
+        - name: news.events
+          type: topic
+        - name: analysis.events
+          type: topic
+          
+  message_formats:
+    news_article:
+      version: 1.0.0
+      fields:
+        - name: id
+          type: string
+          format: uuid
+        - name: url
+          type: string
+          format: url
+        - name: content
+          type: string
+        - name: metadata
+          type: object
+          
+    analysis_result:
+      version: 1.0.0
+      fields:
+        - name: article_id
+          type: string
+          format: uuid
+        - name: entities
+          type: array
+        - name: relationships
+          type: array
+          
+  error_handling:
+    standard_errors:
+      - code: 400
+        name: BAD_REQUEST
+      - code: 401
+        name: UNAUTHORIZED
+      - code: 403
+        name: FORBIDDEN
+      - code: 404
+        name: NOT_FOUND
+      - code: 429
+        name: TOO_MANY_REQUESTS
+      - code: 500
+        name: INTERNAL_ERROR
+        
+  monitoring:
+    metrics:
+      - name: request_duration_ms
+        type: histogram
+      - name: error_count
+        type: counter
+      - name: message_queue_size
+        type: gauge

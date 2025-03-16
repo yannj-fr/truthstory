@@ -1,0 +1,44 @@
+service:
+  name: news-crawler
+  version: 1.0.0
+  description: Crawls and stores news content from various sources
+  
+  api:
+    endpoints:
+      - path: /crawl
+        method: POST
+        description: Start crawling a news source
+        request:
+          source_url: string
+          depth: integer
+          filters: object
+        response:
+          job_id: string
+          status: string
+          
+      - path: /status/{job_id}
+        method: GET
+        description: Get crawling job status
+        response:
+          status: string
+          progress: integer
+          stats: object
+          
+  behavior:
+    - rule: Respect robots.txt for each domain
+    - rule: Implement rate limiting per domain
+    - rule: Store raw and processed content
+    - rule: Extract metadata and relationships
+    
+  requirements:
+    performance:
+      - metric: Crawl rate
+        target: 100 pages/minute/domain
+      - metric: Processing time
+        target: <5s per page
+    storage:
+      - metric: Content retention
+        target: 90 days
+    reliability:
+      - metric: Availability
+        target: 99.9%
