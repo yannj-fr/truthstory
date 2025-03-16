@@ -6,18 +6,23 @@
 The project is currently in its initial setup phase. This document will track the development progress and maintain important context.
 
 ### Development Rules
-1. Code Quality
+1. External Services and APIs
+   - Never use any external APIs or services unless explicitly approved
+   - Maintain a list of approved external services in the project documentation
+   - All external integrations must be reviewed and documented
+
+2. Code Quality
    - Write clean, efficient code with minimal but meaningful comments
    - Focus on making minimal necessary changes
    - Split large functions/files when appropriate
    - Follow consistent coding style
 
-2. Testing
+3. Testing
    - Implement tests for new features
    - Create tests to verify bug fixes
    - Follow test-driven development when appropriate
 
-3. Version Control
+4. Version Control
    - Make atomic commits with clear messages
    - Branch for features/fixes
    - Review changes before committing
@@ -42,6 +47,10 @@ The project is currently in its initial setup phase. This document will track th
 
 ### Technical Specifications
 [To be added as specifications are defined]
+
+### Approved External Services and APIs
+This is a comprehensive list of external services and APIs that have been explicitly approved for use in this project:
+- [None approved yet]
 
 ### Notes
 - This is a new repository that will be built from scratch
