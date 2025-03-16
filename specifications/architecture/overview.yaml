@@ -1,0 +1,69 @@
+architecture:
+  name: TruthStory Platform
+  version: 1.0.0
+  description: Microservices-based platform for news verification and analysis
+  
+  components:
+    news-crawler:
+      type: service
+      description: Crawls and stores news content
+      dependencies:
+        - knowledge-graph
+        - storage
+        
+    knowledge-graph:
+      type: service
+      description: AI analysis and knowledge graph service
+      dependencies:
+        - storage
+        - message-queue
+        
+    fake-news-detector:
+      type: service
+      description: Fake news detection service
+      dependencies:
+        - knowledge-graph
+        - news-propagation
+        
+    news-propagation:
+      type: service
+      description: News propagation analysis service
+      dependencies:
+        - knowledge-graph
+        - storage
+        
+    ui:
+      type: frontend
+      description: User interface application
+      dependencies:
+        - api-gateway
+        
+    demo-interface:
+      type: testing
+      description: Testing interface for services
+      dependencies:
+        - api-gateway
+        
+  infrastructure:
+    storage:
+      type: database
+      technology: PostgreSQL
+      purpose: Primary data storage
+      
+    message-queue:
+      type: queue
+      technology: RabbitMQ
+      purpose: Event communication
+      
+    api-gateway:
+      type: gateway
+      technology: Kong
+      purpose: API management
+      
+  deployment:
+    containerization: Docker
+    orchestration: Kubernetes
+    environments:
+      - development
+      - staging
+      - production

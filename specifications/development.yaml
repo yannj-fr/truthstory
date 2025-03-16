@@ -1,0 +1,90 @@
+development:
+  name: Development Guidelines
+  version: 1.0.0
+  
+  rules:
+    specification_first:
+      description: All features must be specified before implementation
+      requirements:
+        - Specifications must be reviewed and approved
+        - Implementation must follow approved specifications
+        - Deviations require documentation and approval
+      
+    external_services:
+      description: External service usage policy
+      rules:
+        - Explicit approval required for external APIs/services
+        - Document all external services in project docs
+        - Review and document all integrations
+      
+    code_quality:
+      description: Code quality standards
+      requirements:
+        - Follow language-specific style guides
+        - Write unit tests for all features
+        - Maintain test coverage above 80%
+        - Document public APIs
+      
+    version_control:
+      description: Git workflow
+      branches:
+        main: Production-ready code
+        develop: Integration branch
+        feature/*: New features
+        bugfix/*: Bug fixes
+      rules:
+        - Create feature branches from develop
+        - Use pull requests for all changes
+        - Require code review approval
+        - Keep commits focused and atomic
+      
+    testing:
+      description: Testing requirements
+      types:
+        - Unit tests
+        - Integration tests
+        - End-to-end tests
+      rules:
+        - Write tests before implementation
+        - Maintain comprehensive test suite
+        - Automate test execution
+        
+    documentation:
+      description: Documentation requirements
+      types:
+        - API documentation
+        - Architecture documentation
+        - User guides
+      rules:
+        - Keep documentation up to date
+        - Document all public interfaces
+        - Include examples and use cases
+        
+  workflow:
+    steps:
+      - name: Specification
+        description: Create/update specifications
+        
+      - name: Review
+        description: Get specification approval
+        
+      - name: Implementation
+        description: Develop according to specs
+        
+      - name: Testing
+        description: Verify implementation
+        
+      - name: Documentation
+        description: Update documentation
+        
+      - name: Code Review
+        description: Peer review changes
+        
+      - name: Integration
+        description: Merge to develop branch
+        
+  tools:
+    version_control: Git
+    issue_tracking: GitHub Issues
+    continuous_integration: GitHub Actions
+    code_review: GitHub Pull Requests
